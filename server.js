@@ -1,6 +1,7 @@
+require('dotenv').config(); // ✅ Must be first before any other imports
+
 const express = require('express');
 const cors = require('cors');
-// require('dotenv').config(); // Handled by backend/src/config/database
 const { initModels } = require('./backend/src/models/PostgresModels');
 const db = require('./backend/src/config/database');
 
@@ -9,8 +10,6 @@ const disasterRoutes = require('./backend/src/modules/disaster/disasterRoutes');
 const logisticsRoutes = require('./backend/src/modules/medical-logistics/logisticsRoutes');
 const hospitalRoutes = require('./backend/src/modules/hospital-network/networkRoutes');
 const triageRoutes = require('./backend/src/modules/emergency-triage/triageRoutes');
-
-require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
